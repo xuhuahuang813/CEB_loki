@@ -18,15 +18,6 @@ PORT=5432
 PWD="postgres"
 
 
-# QDIR = WORKLOADS[WK]
-# DATADIR = os.path.join(QDIR, "dfs")
-# EXPRFN = os.path.join(DATADIR, "expr_df.csv")
-# exprdf = pd.read_csv(EXPRFN)
-# print(exprdf.keys())
-
-# EXPRFN = os.path.join(DATADIR, "expr_df.csv")
-# OPFN = os.path.join(DATADIR, "op_df.csv")
-
 SQL_DIR = "multi_column_2/"
 
 EXPRFN = os.path.join("./imdb-new-dfs/" + SQL_DIR, "expr_df.csv")
@@ -192,8 +183,7 @@ def get_rowcounts_consts(sqls, exprhashes, inputs, jobids):
     countdata = defaultdict(list)
 
     for si, sql in enumerate(sqls):
-        if si % 5 == 0:
-            print("si is ", si)
+        print("si is ", si)
         coldata = parse_filter(sql)
         ehash = exprhashes[si]
         expr_inp = inputs[si]
@@ -232,7 +222,12 @@ def get_rowcounts_consts(sqls, exprhashes, inputs, jobids):
                 if curcol == curcol2:
                     continue
                 allcols = [curcol,curcol2]
-                allcols = str(allcols.sort())
+                #尝试
+                allcols = str(sorted(allcols))
+                
+                # 代码有误？allcols.sort()返回值是None
+                # allcols = str(allcols.sort())
+                
                 if allcols in seencols:
                     continue
                 seencols.add(allcols)
