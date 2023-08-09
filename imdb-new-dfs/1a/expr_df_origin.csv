@@ -1,0 +1,9 @@
+filtersql,jobid,input,alias,exprhash,unique_filter_cols,discrete_ops,cont_ops,like_ops,is_id,num_unique_ops,num_ops,num_discrete_consts,num_likes,like_lens,InputCardinality,Selectivity,RowCount,workload,db
+"SELECT COUNT(*) from role_type AS rt WHERE rt.role in ('actor','miscellaneous crew')",0,rt,rt,234388626842304026844118353514313021009107246290,1,1,0,0,0,1,2,2,0,0,12,0.16666666666666666,2,ceb,ceb
+SELECT COUNT(*) from name AS n WHERE n.gender in ('m'),0,n,n,1412706111350165054529954383171903240337882399016,1,1,0,0,0,1,1,1,0,0,1736455,1.0,1739579,ceb,ceb
+SELECT COUNT(*) from info_type AS it1 WHERE it1.id = '3',0,it,it1,201247606223691005679595717410545984913115377236,1,1,0,0,0,1,1,1,0,0,113,0.008849557522123894,1,ceb,ceb
+"SELECT COUNT(*) from movie_info AS mi2 WHERE mi2.info in ('Black and White','Color')",0,mi,mi2,1445181067565615963714989244604800786123047056644,1,1,0,0,0,1,2,2,0,0,6181550,0.20957915086022114,1295524,ceb,ceb
+"SELECT COUNT(*) from kind_type AS kt WHERE kt.kind in ('episode','tv movie')",0,kt,kt,1333422666374384445257481059356447143403429617557,1,1,0,0,0,1,2,2,0,0,7,0.2857142857142857,2,ceb,ceb
+SELECT COUNT(*) from title AS t WHERE t.production_year <= 1970 AND 1950 < t.production_year,0,t,t,1352542446783672726478099788649831742465084335914,1,0,1,0,0,2,2,0,0,0,1053463,0.20169953762021067,212483,ceb,ceb
+SELECT COUNT(*) from info_type AS it2 WHERE it2.id = '2',0,it,it2,550750175548628326687047941186800664069875408065,1,1,0,0,0,1,1,1,0,0,113,0.008849557522123894,1,ceb,ceb
+"SELECT COUNT(*) from movie_info AS mi1 WHERE mi1.info in ('Action','Adventure','Documentary','Romance','Short')",0,mi,mi1,915029170915645337045155848430817461122198949223,1,1,0,0,0,1,5,5,0,0,6181550,0.10473991151086702,647455,ceb,ceb

@@ -1,0 +1,17 @@
+op,dtype,optype,constant,input,column,opstring,is_id,jobid,discrete_ops,cont_ops,like_ops,alias,exprhash,InputCardinality,Selectivity,RowCount,workload,db
+=,string,=,'3',it,id,it1.id = '3',0,0,1,0,0,it1,201247606223691005679595717410545984913115377236,113,0.008849557522123894,1,ceb,ceb
+=,string,=,'2',it,id,it2.id = '2',0,0,1,0,0,it2,550750175548628326687047941186800664069875408065,113,0.008849557522123894,1,ceb,ceb
+=,string,in,'Action',mi,info,"mi1.info in ('Action','Adventure','Documentary','Romance','Short')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.10473991151086702,647455,ceb,ceb
+=,string,in,'Adventure',mi,info,"mi1.info in ('Action','Adventure','Documentary','Romance','Short')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.10473991151086702,647455,ceb,ceb
+=,string,in,'Documentary',mi,info,"mi1.info in ('Action','Adventure','Documentary','Romance','Short')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.10473991151086702,647455,ceb,ceb
+=,string,in,'Romance',mi,info,"mi1.info in ('Action','Adventure','Documentary','Romance','Short')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.10473991151086702,647455,ceb,ceb
+=,string,in,'Short',mi,info,"mi1.info in ('Action','Adventure','Documentary','Romance','Short')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.10473991151086702,647455,ceb,ceb
+=,string,in,'Black and White',mi,info,"mi2.info in ('Black and White','Color')",0,0,1,0,0,mi2,1445181067565615963714989244604800786123047056644,6181550,0.20957915086022114,1295524,ceb,ceb
+=,string,in,'Color',mi,info,"mi2.info in ('Black and White','Color')",0,0,1,0,0,mi2,1445181067565615963714989244604800786123047056644,6181550,0.20957915086022114,1295524,ceb,ceb
+=,string,in,'episode',kt,kind,"kt.kind in ('episode','tv movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.2857142857142857,2,ceb,ceb
+=,string,in,'tv movie',kt,kind,"kt.kind in ('episode','tv movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.2857142857142857,2,ceb,ceb
+=,string,in,'actor',rt,role,"rt.role in ('actor','miscellaneous crew')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.16666666666666666,2,ceb,ceb
+=,string,in,'miscellaneous crew',rt,role,"rt.role in ('actor','miscellaneous crew')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.16666666666666666,2,ceb,ceb
+=,string,in,'m',n,gender,n.gender in ('m'),0,0,1,0,0,n,1412706111350165054529954383171903240337882399016,1736455,1.0,1739579,ceb,ceb
+<=,cont,cont,1970,t,production_year,t.production_year <= 1970,0,0,0,1,0,t,1352542446783672726478099788649831742465084335914,1053463,0.20169953762021067,212483,ceb,ceb
+<,cont,cont,1950,t,production_year,1950 < t.production_year,0,0,0,1,0,t,1352542446783672726478099788649831742465084335914,1053463,0.20169953762021067,212483,ceb,ceb
