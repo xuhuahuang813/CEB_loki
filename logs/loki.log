@@ -10,3 +10,13 @@
 2023-08-09 20:51:35 INFO     [MAIN]  Solving: {'gender'}
 2023-08-09 20:51:36 INFO     [MAIN]  Solved: {'gender'}
 2023-08-09 20:51:46 INFO     [MAIN]  Exiting Loki!
+2023-08-10 10:47:51 INFO     [MAIN]  Loki initialized with configuration:
+{
+    "imdb": {
+        "constraints_df": "./imdb-new-dfs/multi_column_2/literal_df.csv",
+        "df": "./imdb-new-dfs/multi_column_2/op_df.csv"
+    }
+}
+2023-08-10 10:47:52 INFO     [MAIN]  Solving: {'gender', 'name_pcode_nf'}
+2023-08-10 10:47:58 INFO     [MAIN]  Solved: {'gender', 'name_pcode_nf'}
+2023-08-10 10:48:06 INFO     [MAIN]  Exiting Loki!
