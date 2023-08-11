@@ -40,7 +40,7 @@ if __name__ == '__main__':
     tables = set(df['input']) #{'it', 'n', 'mi', 't', 'rt', 'kt'}
     #table_columns {'it': {'id'}, 'n': {'gender'}, 'mi': {'info'}, 't': {'production_year'}, 'rt': {'role'}, 'kt': {'kind'}}
     table_columns = {table: set(df['column'].where(df['input'] == table).dropna()) for table in tables}
-    c_df = pd.read_csv(loki.config[args.workload]['constraints_df'])
+    c_df = pd.read_csv(loki.config[args.workload]['constraints_df']) #literal_df.csv
 
     table = args.table # n
     columns = table_columns[table] # {'gender'}

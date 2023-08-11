@@ -8,7 +8,7 @@ import sys
 sys.path.append("./")
 
 
-SQL_DIR = "multi_column_2/"  # "./imdb-sqls/"中存在文件夹
+SQL_DIR = "multi_column_3/"  # "./imdb-sqls/"中存在文件夹
 INPUT_SQLS_PATH_LIST = os.listdir("./imdb-new-sqls/" + SQL_DIR)
 OUTPUT_DIR = "./imdb-new-workload/" + SQL_DIR
 

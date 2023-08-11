@@ -1,21 +1,21 @@
 op,dtype,optype,constant,input,column,opstring,is_id,jobid,discrete_ops,cont_ops,like_ops,alias,exprhash,InputCardinality,Selectivity,RowCount,workload,db
-=,string,in,'4',it,id,it1.id in ('4'),0,0,1,0,0,it1,201247606223691005679595717410545984913115377236,113,0.0088495575221238,1,ceb,ceb
-=,string,in,'Danish',mi,info,"mi1.info in ('Danish','Spanish')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.0158929394731094,98243,ceb,ceb
-=,string,in,'Spanish',mi,info,"mi1.info in ('Danish','Spanish')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.0158929394731094,98243,ceb,ceb
-LIKE,unknown,contains,'%lise%',n,name,n.name like '%lise%',0,0,0,0,1,n,1412706111350165054529954383171903240337882399016,1736455,0.0015715926989181,2729,ceb,ceb
-=,string,in,'tv series',kt,kind,"kt.kind in ('tv series','video game','video movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.4285714285714285,3,ceb,ceb
-=,string,in,'video game',kt,kind,"kt.kind in ('tv series','video game','video movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.4285714285714285,3,ceb,ceb
-=,string,in,'video movie',kt,kind,"kt.kind in ('tv series','video game','video movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.4285714285714285,3,ceb,ceb
+=,string,in,'4',it,id,it1.id in ('4'),0,0,1,0,0,it1,201247606223691005679595717410545984913115377236,113,0.008849557522123894,1,ceb,ceb
+=,string,in,'Danish',mi,info,"mi1.info in ('Danish','Spanish')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.015892939473109494,98243,ceb,ceb
+=,string,in,'Spanish',mi,info,"mi1.info in ('Danish','Spanish')",0,0,1,0,0,mi1,915029170915645337045155848430817461122198949223,6181550,0.015892939473109494,98243,ceb,ceb
+LIKE,unknown,contains,'%lise%',n,name,n.name like '%lise%',0,0,0,0,1,n,1412706111350165054529954383171903240337882399016,1736455,0.0015715926989181982,2729,ceb,ceb
+=,string,in,'tv series',kt,kind,"kt.kind in ('tv series','video game','video movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.42857142857142855,3,ceb,ceb
+=,string,in,'video game',kt,kind,"kt.kind in ('tv series','video game','video movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.42857142857142855,3,ceb,ceb
+=,string,in,'video movie',kt,kind,"kt.kind in ('tv series','video game','video movie')",0,0,1,0,0,kt,1333422666374384445257481059356447143403429617557,7,0.42857142857142855,3,ceb,ceb
 =,string,in,'director',rt,role,"rt.role in ('director','editor','miscellaneous crew','producer','production designer')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.4166666666666667,5,ceb,ceb
 =,string,in,'editor',rt,role,"rt.role in ('director','editor','miscellaneous crew','producer','production designer')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.4166666666666667,5,ceb,ceb
 =,string,in,'miscellaneous crew',rt,role,"rt.role in ('director','editor','miscellaneous crew','producer','production designer')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.4166666666666667,5,ceb,ceb
 =,string,in,'producer',rt,role,"rt.role in ('director','editor','miscellaneous crew','producer','production designer')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.4166666666666667,5,ceb,ceb
 =,string,in,'production designer',rt,role,"rt.role in ('director','editor','miscellaneous crew','producer','production designer')",0,0,1,0,0,rt,234388626842304026844118353514313021009107246290,12,0.4166666666666667,5,ceb,ceb
-=,string,in,'1',it,id,it1.id in ('1'),0,1,1,0,0,it1,1210814573545184632437131304767956471066998613252,113,0.0088495575221238,1,ceb,ceb
-=,string,in,'25',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066,101577,ceb,ceb
-=,string,in,'30',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066,101577,ceb,ceb
-=,string,in,'60',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066,101577,ceb,ceb
-=,string,in,'Argentina:30',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066,101577,ceb,ceb
+=,string,in,'1',it,id,it1.id in ('1'),0,1,1,0,0,it1,1210814573545184632437131304767956471066998613252,113,0.008849557522123894,1,ceb,ceb
+=,string,in,'25',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066003,101577,ceb,ceb
+=,string,in,'30',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066003,101577,ceb,ceb
+=,string,in,'60',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066003,101577,ceb,ceb
+=,string,in,'Argentina:30',mi,info,"mi1.info in ('25','30','60','Argentina:30')",0,1,1,0,0,mi1,648840168530145489155498068332217171541974777094,6181550,0.01643228640066003,101577,ceb,ceb
 =,string,in,'episode',kt,kind,"kt.kind in ('episode','tv series')",0,1,1,0,0,kt,261319378975483853722178487332059663736625857792,7,0.2857142857142857,2,ceb,ceb
 =,string,in,'tv series',kt,kind,"kt.kind in ('episode','tv series')",0,1,1,0,0,kt,261319378975483853722178487332059663736625857792,7,0.2857142857142857,2,ceb,ceb
 =,string,in,'actress',rt,role,"rt.role in ('actress','costume designer','writer')",0,1,1,0,0,rt,1129807898000370683238684819669343140232899186563,12,0.25,3,ceb,ceb
@@ -36,7 +36,7 @@ LIKE,unknown,contains,'%lise%',n,name,n.name like '%lise%',0,0,0,0,1,n,141270611
 =,string,in,'W42',n,surname_pcode,"n.surname_pcode in ('B42','B65','F652','H2','H4','J52','L2','L5','R2','S53','W3','W42')",0,1,1,0,0,n,845697540102295928657811596227970506096002273384,1736455,0.1540293298703393,267465,ceb,ceb
 <=,cont,cont,1990,t,production_year,t.production_year <= 1990,0,1,0,1,0,t,951838120422219244428823660403672919492071030917,1053463,0.5154447759437208,543002,ceb,ceb
 >=,cont,cont,1950,t,production_year,t.production_year >= 1950,0,1,0,1,0,t,951838120422219244428823660403672919492071030917,1053463,0.5154447759437208,543002,ceb,ceb
-=,string,in,'American Broadcasting Company ABC',cn,name,"cn.name in ('American Broadcasting Company (ABC)','Columbia Broadcasting System (CBS)','National Broadcasting Company (NBC)')",0,1,1,0,0,cn,925964089616316392877905884386968360949127693770,138234,2.1702330830331175e-05,3,ceb,ceb
-=,string,in,'Columbia Broadcasting System CBS',cn,name,"cn.name in ('American Broadcasting Company (ABC)','Columbia Broadcasting System (CBS)','National Broadcasting Company (NBC)')",0,1,1,0,0,cn,925964089616316392877905884386968360949127693770,138234,2.1702330830331175e-05,3,ceb,ceb
-=,string,in,'National Broadcasting Company NBC',cn,name,"cn.name in ('American Broadcasting Company (ABC)','Columbia Broadcasting System (CBS)','National Broadcasting Company (NBC)')",0,1,1,0,0,cn,925964089616316392877905884386968360949127693770,138234,2.1702330830331175e-05,3,ceb,ceb
+=,string,in,'American Broadcasting Company ABC',cn,name,"cn.name in ('American Broadcasting Company (ABC)','Columbia Broadcasting System (CBS)','National Broadcasting Company (NBC)')",0,1,1,0,0,cn,925964089616316392877905884386968360949127693770,138234,2.1702330830331178e-05,3,ceb,ceb
+=,string,in,'Columbia Broadcasting System CBS',cn,name,"cn.name in ('American Broadcasting Company (ABC)','Columbia Broadcasting System (CBS)','National Broadcasting Company (NBC)')",0,1,1,0,0,cn,925964089616316392877905884386968360949127693770,138234,2.1702330830331178e-05,3,ceb,ceb
+=,string,in,'National Broadcasting Company NBC',cn,name,"cn.name in ('American Broadcasting Company (ABC)','Columbia Broadcasting System (CBS)','National Broadcasting Company (NBC)')",0,1,1,0,0,cn,925964089616316392877905884386968360949127693770,138234,2.1702330830331178e-05,3,ceb,ceb
 =,string,in,'distributors',ct,kind,ct.kind in ('distributors'),0,1,1,0,0,ct,504334455658522184764374265934773148380230148126,4,0.25,1,ceb,ceb

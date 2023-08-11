@@ -1,7 +1,5 @@
-import numpy as np
 import scipy.stats as st
 import math
-# from wanderjoin import WanderJoin
 from query_representation.query import parse_sql
 import re
 from networkx.readwrite import json_graph
@@ -18,6 +16,8 @@ import psycopg2 as pg
 import argparse
 import sys
 sys.path.append(".")
+
+# from wanderjoin import WanderJoin
 
 
 TIMEOUT_COUNT_CONSTANT = 150001000001
@@ -70,21 +70,21 @@ def read_flags():
     parser.add_argument("--wj_walk_timeout", type=float, required=False,
                         default=0.5)
     parser.add_argument("--query_dir", type=str, required=False,
-                        default="./imdb-new-workload/multi_column_2/")
+                        default="./imdb-new-workload/multi_column_3/")
     parser.add_argument("-n", "--num_queries", type=int,
-                        required=False, default=5)
+                        required=False, default=-1)
     parser.add_argument("--use_tries", type=int,
                         required=False, default=1)
     parser.add_argument("--skip_zero_queries", type=int,
                         required=False, default=1)
     parser.add_argument("--no_parallel", type=int,
                         required=False, default=0)
-    # 
+    #
     parser.add_argument("--card_type", type=str, required=False,
-                        default="total")
-    # 
+                        default="pg")
+    #
     parser.add_argument("--key_name", type=str, required=False,
-                        default="total")
+                        default="expected")
     parser.add_argument("--true_timeout", type=int,
                         required=False, default=1800000*5)
     parser.add_argument("--pg_total", type=int,
@@ -194,8 +194,6 @@ def get_cardinality(qrep, card_type, key_name, db_host, db_name, user, pwd,
     the qrep.
     '''
     print("get cardinality!")
-
-    # key_name不会是None
     if key_name is None:
         key_name = card_type
 
@@ -211,11 +209,9 @@ def get_cardinality(qrep, card_type, key_name, db_host, db_name, user, pwd,
 
         cursor = con.cursor()
 
-    # if idx % 10 == 0:
-    #     print("query: ", idx)
-    print("query: ", idx)
+    if idx % 10 == 0:
+        print("query: ", idx)
 
-    # 不进入
     # load the cache for few types
     if card_type in CACHE_CARD_TYPES:
         sql_cache = klepto.archives.dir_archive(cache_dir,
@@ -357,20 +353,20 @@ def get_cardinality(qrep, card_type, key_name, db_host, db_name, user, pwd,
                 print("skipping query with zero cardinality subquery")
                 break
 
-        # elif card_type == "wanderjoin":
-        #     assert "SELECT" in subsql
-        #     subsql = subsql.replace("SELECT", "SELECT ONLINE")
-        #     subsql = subsql.replace(";", "")
-        #     subsql += WANDERJOIN_TIME_FMT.format(
-        #         TIME=wj_walk_timeout,
-        #         CONF=95,
-        #         INT=1000)
-        #     print(subsql)
-        #     output = execute_query(subsql, user, db_host, port, pwd, db_name,
-        #                            [])
-        #     print(output)
-        #     pdb.set_trace()
-        #     assert False
+        elif card_type == "wanderjoin":
+            assert "SELECT" in subsql
+            subsql = subsql.replace("SELECT", "SELECT ONLINE")
+            subsql = subsql.replace(";", "")
+            subsql += WANDERJOIN_TIME_FMT.format(
+                TIME=wj_walk_timeout,
+                CONF=95,
+                INT=1000)
+            print(subsql)
+            output = execute_query(subsql, user, db_host, port, pwd, db_name,
+                                   [])
+            print(output)
+            pdb.set_trace()
+            assert False
 
         elif card_type == "total":
             exec_sql = get_total_count_query(subsql)
@@ -402,7 +398,6 @@ def get_cardinality(qrep, card_type, key_name, db_host, db_name, user, pwd,
 
 
 def main():
-
     fns = list(glob.glob(args.query_dir + "/*"))
     fns.sort()
     par_args = []
@@ -414,7 +409,6 @@ def main():
         if (".pkl" not in fn and ".sql" not in fn):
             continue
 
-        # 判断是否已生成pkl文件，如果已生成pkl文件,则直接读取；否则，和sql_to_qrep.py中一样的步骤生成pkl文件
         if ".pkl" in fn:
             qrep = load_qrep(fn)
         else:
@@ -436,7 +430,6 @@ def main():
             print("updated sql rep!")
             continue
 
-        # no_parallel默认为false，不进入if
         if args.no_parallel:
             if args.card_type == "wanderjoin":
                 wj_dir = os.path.dirname(fn) + "/wj_data/"
@@ -459,7 +452,6 @@ def main():
 
             continue
 
-        # 仓库中命令行card_type="pg"，不进入if
         if args.card_type == "wanderjoin":
             par_func = get_cardinality_wj
 
@@ -478,16 +470,13 @@ def main():
                              args.db_name, args.user, args.pwd, args.port,
                              fn, wj_fn, args.wj_walk_timeout, i, args.seed, None,
                              args.use_tries))
-        # 进入else
         else:
-
-            # 尝试不并行
             qrep = get_cardinality(qrep, args.card_type, args.key_name, args.db_host,
                                    args.db_name, args.user, args.pwd, args.port,
                                    args.true_timeout, args.pg_total, args.card_cache_dir, fn,
                                    args.wj_walk_timeout, i, args.sampling_percentage,
                                    args.sampling_type, args.skip_zero_queries, args.db_year)
-
+            
             # par_func = get_cardinality
             # par_args.append((qrep, args.card_type, args.key_name, args.db_host,
             #                  args.db_name, args.user, args.pwd, args.port,
@@ -504,24 +493,10 @@ def main():
         num_proc = cpu_count()
     else:
         num_proc = args.num_proc
-    #尝试注释 
     # with Pool(processes=num_proc) as pool:
     #     qreps = pool.starmap(par_func, par_args)
     print("Generated all cardinalities in {} seconds".format(time.time()-start))
 
-# 尝试加入
-# def freeze_support():
-#     # getattr(sys, 'frozen', False) 用于安全地获取sys模块的'frozen'属性值，以确定当前脚本是否处于冻结状态，并根据情况加载不同的模块来处理进程启动。
-#     if sys.platform == "win32" and getattr(sys, 'frozen', False):
-#         import multiprocessing.popen_spawn_win32 as forking
-#     else:
-#         import multiprocessing.forking as forking
 
-#     forking.freeze_support()
-
-
-if __name__ == "__main__":
-    # 尝试处理报错
-    # freeze_support()
-    args = read_flags()
-    main()
+args = read_flags()
+main()
